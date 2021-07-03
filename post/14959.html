@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="zykee&#39;s web">
 <meta property="og:description" content="ECMAScriptECMAScript 是形成 JavaScript 语言基础的脚本语言。ECMAScript 是由 Ecma 国际标准组织以ECMA-262和 ECMA-402 规范的形式进行标准化的。 ES6 新特性 类 模块化 箭头函数 模板字符串 解构赋值 延展操作符 对象属性缩写 Promise let 和 const  类123456789101112131415161718clas">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-07-03T12:47:46.846Z">
+<meta property="og:updated_time" content="2021-07-03T12:52:28.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ESNext学习">
 <meta name="twitter:description" content="ECMAScriptECMAScript 是形成 JavaScript 语言基础的脚本语言。ECMAScript 是由 Ecma 国际标准组织以ECMA-262和 ECMA-402 规范的形式进行标准化的。 ES6 新特性 类 模块化 箭头函数 模板字符串 解构赋值 延展操作符 对象属性缩写 Promise let 和 const  类123456789101112131415161718clas">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-07-03 14:26:19 / 修改时间：20:47:46" itemprop="dateCreated datePublished" datetime="2021-07-03T14:26:19+08:00">2021-07-03</time>
+              <time title="创建时间：2021-07-03 14:26:19 / 修改时间：20:52:28" itemprop="dateCreated datePublished" datetime="2021-07-03T14:26:19+08:00">2021-07-03</time>
             </span>
 
           
@@ -204,6 +204,7 @@
 </ul>
 <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">  &#125;</span><br><span class="line">  introduce() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`hello, I'm <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>.`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  constuctor(name, old) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name)</span><br><span class="line">    <span class="keyword">this</span>.old = old</span><br><span class="line">  &#125;</span><br><span class="line">  introduce() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">super</span>.introduce()&#125;</span> I'm <span class="subst">$&#123;old&#125;</span> years old.`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <blockquote>
 <p>原型链</p>
 </blockquote>
