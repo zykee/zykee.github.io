@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zykee.net","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="webpack打包对应的loader123456789101112&amp;#123;  ...,  module: &amp;#123;    rules: [      &amp;#123;        test: /\.scss/,        use: [&amp;apos;style-loader&amp;apos;, &amp;apos;css-loader&amp;apos;, &amp;apos;sass-loader&amp;apos;]">
+<meta name="keywords" content="scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scss-study">
+<meta property="og:url" content="http://zykee.net/post/40617.html">
+<meta property="og:site_name" content="zykee&#39;s web">
+<meta property="og:description" content="webpack打包对应的loader123456789101112&amp;#123;  ...,  module: &amp;#123;    rules: [      &amp;#123;        test: /\.scss/,        use: [&amp;apos;style-loader&amp;apos;, &amp;apos;css-loader&amp;apos;, &amp;apos;sass-loader&amp;apos;]">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-30T10:15:44.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="scss-study">
+<meta name="twitter:description" content="webpack打包对应的loader123456789101112&amp;#123;  ...,  module: &amp;#123;    rules: [      &amp;#123;        test: /\.scss/,        use: [&amp;apos;style-loader&amp;apos;, &amp;apos;css-loader&amp;apos;, &amp;apos;sass-loader&amp;apos;]">
+
+<link rel="canonical" href="http://zykee.net/post/40617.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>scss-study | zykee's web</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zykee's web</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">活到老学到老</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zykee.net/post/40617.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zykee">
+      <meta itemprop="description" content="事无巨细">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zykee's web">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          scss-study
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-01 19:02:15" itemprop="dateCreated datePublished" datetime="2019-11-01T19:02:15+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-30 18:15:44" itemprop="dateModified" datetime="2020-07-30T18:15:44+08:00">2020-07-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="webpack打包对应的loader"><a href="#webpack打包对应的loader" class="headerlink" title="webpack打包对应的loader"></a>webpack打包对应的loader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.scss/,</span><br><span class="line">        use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;sass-loader&apos;]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h3 id="变量定义与使用"><a href="#变量定义与使用" class="headerlink" title="变量定义与使用"></a>变量定义与使用</h3><p>scss中使用<code>$</code>关键字来定义变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$border-color: #aaa; // 声明变量</span><br><span class="line">$border_color: #ccc; // 由于历史原因，变量名（以及其他所有Sass标识符）可以互换连字符（-）和下划线（_）</span><br><span class="line">.contanier &#123;</span><br><span class="line">  $border-width: 1px; // 局部变量</span><br><span class="line">  $border-height: 20px !global; // 使用!global将变量设置为全局变量 </span><br><span class="line">  border: $border-width solid $border_color; // 使用变量</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>$border-color</code>是一个全局变量，<code>$border-width</code>是一个局部变量，只能在局部中使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 编译后的css</span><br><span class="line">.contanier &#123;</span><br><span class="line">  border: 1px solid #ccc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套选择器"><a href="#嵌套选择器" class="headerlink" title="嵌套选择器"></a>嵌套选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 常见CSS选择器 --&gt;</span><br><span class="line">*: 选择所有元素</span><br><span class="line">.bb,.aa: 选择所有使用aa, bb类的元素</span><br><span class="line">.aa .bb: 选择使用aa类的元素内所有使用bb类的元素</span><br><span class="line">.aa&gt;.bb: 选择所有使用aa类的父级元素的使用bb类的元素</span><br><span class="line">.aa+.bb: 选择所有紧接aa类元素的bb类元素</span><br><span class="line">.aa~.bb: 选择aa类之后的每一个bb类的元素</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入SCSS文件"><a href="#导入SCSS文件" class="headerlink" title="导入SCSS文件"></a>导入SCSS文件</h3><p>使用<code>@import name.scss;</code>来导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*App1.scss*/</span><br><span class="line">$border-color:#aaa; //声明变量</span><br><span class="line">@import App2.scss;  //引入另一个SCSS文件</span><br><span class="line">.container &#123;</span><br><span class="line">    border:1px solid $border-color; //使用变量</span><br><span class="line">&#125;</span><br><span class="line">/*App2.scss*/</span><br><span class="line">$border-color:#ccc; //声明变量</span><br><span class="line"></span><br><span class="line">/*生成的css文件*/</span><br><span class="line">.container &#123;</span><br><span class="line">    border:1px solid #ccc; //使用变量</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上是导入的最基础的栗子，导入变量与文件中原有变量冲突时，按照就近原则来展示</p>
+<ul>
+<li>可以设置导入的变量不去影响本文件中的变量<code>!default</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*App1.scss*/</span><br><span class="line">$border-color:#aaa; //声明变量</span><br><span class="line">@import App2.scss;  //引入另一个SCSS文件</span><br><span class="line">.container &#123;</span><br><span class="line">    border:1px solid $border-color; //使用变量</span><br><span class="line">&#125;</span><br><span class="line">/*App2.scss*/</span><br><span class="line">$border-color:#ccc !default; //声明变量</span><br><span class="line"></span><br><span class="line">/*生成的css文件*/</span><br><span class="line">.container &#123;</span><br><span class="line">    border:1px solid #ccc; //使用变量</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>导入文件的位置可以在任意最外层的位置，只要不在类似<code>@mixin</code>中就行</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* 这是注释 */</span><br><span class="line">// 这是注释</span><br></pre></td></tr></table></figure>
+
+<h3 id="混合器"><a href="#混合器" class="headerlink" title="混合器"></a>混合器</h3><ul>
+<li><p>创建方法 关键词<code>mixin</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@mixin border-radius&#123;</span><br><span class="line">  -moz-border-radius: 5px;</span><br><span class="line">  -webkit-border-radius: 5px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">  color:red;</span><br><span class="line">&#125;</span><br><span class="line">@mixin get-border-radius($border-radius:5px,$color:red)&#123;</span><br><span class="line">    -moz-border-radius: $border-radius;</span><br><span class="line">    -webkit-border-radius: $border-radius;</span><br><span class="line">    border-radius: $border-radius;</span><br><span class="line">    color:$color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用方法 关键词<code>include</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  border: 1px solid #aaa;</span><br><span class="line">  @include get-border-radius; //不传参，即为默认值</span><br><span class="line">  @include get-border-radius(10px, blue); //传参，即为指定值</span><br><span class="line">  @include get-border-radius($color:blue,$border-radius:10px); //传参，不考虑顺序</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>混合器可以写一切SCSS代码</p>
+</blockquote>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>使用关键字<code>@extend</code>来完成继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.cantainer &#123;</span><br><span class="line">  @extend .border-style;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://juejin.im/post/5cf488ea518825378867758f" target="_blank" rel="noopener">SCSS基础</a><br><a href="https://www.sasscss.com/docs/" target="_blank" rel="noopener">官网</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/scss/" rel="tag"># scss</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/5652.html" rel="prev" title="Ant Form检测表单数据">
+      <i class="fa fa-chevron-left"></i> Ant Form检测表单数据
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/25392.html" rel="next" title="mac的使用过程遇到的问题">
+      mac的使用过程遇到的问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack打包对应的loader"><span class="nav-number">1.</span> <span class="nav-text">webpack打包对应的loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量定义与使用"><span class="nav-number">2.</span> <span class="nav-text">变量定义与使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套选择器"><span class="nav-number">3.</span> <span class="nav-text">嵌套选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入SCSS文件"><span class="nav-number">4.</span> <span class="nav-text">导入SCSS文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">5.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合器"><span class="nav-number">6.</span> <span class="nav-text">混合器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">7.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">zykee</p>
+  <div class="site-description" itemprop="description">事无巨细</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zykee</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
