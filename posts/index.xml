@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on zykee</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on zykee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Nov 2021 19:30:56 +0800</lastBuildDate><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>更新homebrew</title>
+      <link>http://example.org/posts/updatebrew/</link>
+      <pubDate>Thu, 25 Nov 2021 19:30:56 +0800</pubDate>
+      
+      <guid>http://example.org/posts/updatebrew/</guid>
+      <description>由于 github 的在国内访问限制的问题，博客的访问出现了问题，遂准备将博客换到码云来进行托管。在从新选择博客系统中，最后选择了最快的博客生成器hugo。
+mac 下载hugo的方法是:
+brew install hugo 由于homebrew的版本过低，并且本人是最新的 mac 12 系统，并且由于网络限制，导致更新失败。
+To `brew update`, first run: git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow ... Warning: You are using macOS 12. ... 最终的更新方法   首先，换源，参考该方法
+  升级
+  git -C /usr/local/Homebrew/Library/Taps/homebrew/ 升级成功后，即可下载hugo  brew install hugo  若此时还报错，执行 brew update 更新即可。
+ </description>
+    </item>
+    
+  </channel>
+</rss>
