@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>homebrew - 标签 - 🉑🐥儿帥</title>
+        <link>http://example.org/tags/homebrew/</link>
+        <description>homebrew - 标签 - 🉑🐥儿帥</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yongkezheng@gmail.com (zykee)</managingEditor>
+            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/homebrew/" rel="self" type="application/rss+xml" /><item>
+    <title>更新homebrew</title>
+    <link>http://example.org/posts/updatebrew/</link>
+    <pubDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/updatebrew/</guid>
+    <description><![CDATA[由于 github 的在国内访问限制的问题，博客的访问出现了问题，遂准备将博客换到码云来进行托管。在从新选择博客系统中，最后选择了最快的博客生成器hugo]]></description>
+</item></channel>
+</rss>
