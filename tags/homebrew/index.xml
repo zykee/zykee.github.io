@@ -10,6 +10,6 @@
     <pubDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/updatebrew/</guid>
-    <description><![CDATA[由于 github 的在国内访问限制的问题，博客的访问出现了问题，遂准备将博客换到码云来进行托管。在从新选择博客系统中，最后选择了最快的博客生成器hugo]]></description>
+    <description><![CDATA[由于本地hexo和node版本不支持，每次还得用nvm切换node环境，所以重新选择用hugo来编辑博客。 mac 下载hugo的方法是: brew install hugo 由于]]></description>
 </item></channel>
 </rss>

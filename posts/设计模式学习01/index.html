@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>设计模式学习-状态模式 - 🉑🐥儿帥</title><meta name="Description" content=""><meta property="og:title" content="设计模式学习-状态模式" />
+<meta property="og:description" content="经常会遇到一个现象，在某个需求中会存在多种不同的状态，并且状态之间还会进行转换。 例如在处理不同的状态时，会这么写： if(status === &#39;ready&#39;) { ... } else if(status === &#39;confirm&#39;) { ... }" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-01T18:35:57+08:00" />
+<meta property="article:modified_time" content="2021-12-01T18:35:57+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式学习-状态模式"/>
+<meta name="twitter:description" content="经常会遇到一个现象，在某个需求中会存在多种不同的状态，并且状态之间还会进行转换。 例如在处理不同的状态时，会这么写： if(status === &#39;ready&#39;) { ... } else if(status === &#39;confirm&#39;) { ... }"/>
+<meta name="application-name" content="🉑🐥儿帥">
+<meta name="apple-mobile-web-app-title" content="🉑🐥儿帥"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/" /><link rel="prev" href="http://example.org/posts/updatebrew/" /><link rel="next" href="http://example.org/posts/buffer_stream/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "设计模式学习-状态模式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/posts\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001\/"
+        },"genre": "posts","wordcount":  866 ,
+        "url": "http:\/\/example.org\/posts\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001\/","datePublished": "2021-12-01T18:35:57+08:00","dateModified": "2021-12-01T18:35:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": "zykee"},"author": {
+                "@type": "Person",
+                "name": "zykee"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="🉑🐥儿帥">🉑🐥儿帥</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="🉑🐥儿帥">🉑🐥儿帥</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">设计模式学习-状态模式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>zykee</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-01">2021-12-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 866 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#应用场景">应用场景</a></li>
+    <li><a href="#优缺点">优缺点</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>经常会遇到一个现象，在某个需求中会存在多种不同的状态，并且状态之间还会进行转换。</p>
+<p>例如在处理不同的状态时，会这么写：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">&#39;ready&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">&#39;confirm&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">&#39;commit&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">&#39;paid&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div><p>如果上述的状态越来越多，以及状态规则修改，那么这一段代码就得大修一遍。</p>
+<h1 id="解决方法----状态模式">解决方法 &ndash; 状态模式</h1>
+<p><code>状态模式</code>建议为所有对象的可能的状态建立一个类，然后将所有的状态的操作抽取到这个类中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * ready
+</span><span class="cm"> * confirm
+</span><span class="cm"> * commit
+</span><span class="cm"> * waitPaid
+</span><span class="cm"> * paid
+</span><span class="cm"> * shipped
+</span><span class="cm"> */</span>
+<span class="kr">class</span> <span class="nx">Order</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span>
+    <span class="nx">id</span><span class="p">,</span>
+    <span class="nx">status</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ReadyStatus</span><span class="p">(),</span>
+    <span class="nx">goods</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;手机&#34;</span><span class="p">,</span> <span class="nx">count</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}]</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">goods</span> <span class="o">=</span> <span class="nx">goods</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="nx">status</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">status</span><span class="p">.</span><span class="nx">setContext</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">changeStatus</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">status</span><span class="p">.</span><span class="nx">deleteContext</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="nx">status</span><span class="p">;</span>
+    <span class="nx">status</span><span class="p">.</span><span class="nx">setContext</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">Status</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">desc</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">desc</span> <span class="o">=</span> <span class="nx">desc</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">getDesc</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">desc</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">setContext</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="nx">context</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">deleteContext</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">confirm</span><span class="p">()</span> <span class="p">{}</span>
+
+  <span class="nx">commit</span><span class="p">()</span> <span class="p">{}</span>
+
+  <span class="nx">paid</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">ReadyStatus</span> <span class="kr">extends</span> <span class="nx">Status</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="s2">&#34;等待确认&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">confirm</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">confirmStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConfirmStatus</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">changeStatus</span><span class="p">(</span><span class="nx">confirmStatus</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">ConfirmStatus</span> <span class="kr">extends</span> <span class="nx">Status</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="s2">&#34;待确认&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">commit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">commitStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CommitStatus</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">changeStatus</span><span class="p">(</span><span class="nx">commitStatus</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">CommitStatus</span> <span class="kr">extends</span> <span class="nx">Status</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="s2">&#34;已提交&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">paid</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">paidStatus</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PaidStatus</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">changeStatus</span><span class="p">(</span><span class="nx">paidStatus</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">class</span> <span class="nx">PaidStatus</span> <span class="kr">extends</span> <span class="nx">Status</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="s2">&#34;已购买&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">order</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Order</span><span class="p">(</span><span class="s2">&#34;asdfa23jkl23323&#34;</span><span class="p">);</span>
+<span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">.</span><span class="nx">confirm</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">.</span><span class="nx">commit</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">.</span><span class="nx">paid</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+</code></pre></div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../../data/status.png"
+        data-srcset="../../data/status.png, ../../data/status.png 1.5x, ../../data/status.png 2x"
+        data-sizes="auto"
+        alt="../../data/status.png"
+        title="状态模式" /></p>
+<h2 id="应用场景">应用场景</h2>
+<ul>
+<li>如果对象需要根据自身当前状态进行不同行为， 同时状态的数量非常多且与状态相关的代码会频繁变更的话， 可使用状态模式。</li>
+</ul>
+<blockquote>
+<p>所有特定于状态的代码抽取到一组独立的类中。 这样一来， 可以在独立于其他状态的情况下添加新状态或修改已有状态， 从而减少维护成本。</p>
+</blockquote>
+<ul>
+<li>如果某个类需要根据成员变量的当前值改变自身行为， 从而需要使用大量的条件语句时， 可使用该模式。</li>
+</ul>
+<blockquote>
+<p>状态模式会将这些条件语句的分支抽取到相应状态类的方法中。 同时， 还可以清除主要类中与特定状态相关的临时成员变量和帮手方法代码。</p>
+</blockquote>
+<ul>
+<li>当相似状态和基于条件的状态机转换中存在许多重复代码时， 可使用状态模式。</li>
+</ul>
+<blockquote>
+<p>状态模式让你能够生成状态类层次结构， 通过将公用代码抽取到抽象基类中来减少重复。</p>
+</blockquote>
+<h2 id="优缺点">优缺点</h2>
+<ul>
+<li>优点</li>
+</ul>
+<ol>
+<li><code>单一职责原则</code>。将与特定状态相关代码放在单独的类中。</li>
+<li><code>开闭原则</code>。对扩展开放，对修改关闭。无需修改已有状态和上下文即可引入新状态。</li>
+<li>通过消除臃肿的状态机条件语句简化上下文代码。</li>
+</ol>
+<ul>
+<li>缺点</li>
+</ul>
+<ol>
+<li>如果状态机只有很少的几个状态， 或者很少发生改变， 那么应用该模式可能会显得小题大作。</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-12-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/updatebrew/" class="prev" rel="prev" title="更新homebrew"><i class="fas fa-angle-left fa-fw"></i>更新homebrew</a>
+            <a href="/posts/buffer_stream/" class="next" rel="next" title="Buffer、Stream到底是啥？">Buffer、Stream到底是啥？<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">可鸡儿帅丶</div><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.89.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">zykee</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">鄂ICP备18005035号-1</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

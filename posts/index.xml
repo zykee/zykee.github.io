@@ -4,12 +4,26 @@
         <link>http://example.org/posts/</link>
         <description>所有文章 | 🉑🐥儿帥</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yongkezheng@gmail.com (zykee)</managingEditor>
-            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Thu, 02 Dec 2021 14:53:00 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Buffer、Stream到底是啥？</title>
+    <link>http://example.org/posts/buffer_stream/</link>
+    <pubDate>Thu, 02 Dec 2021 14:53:00 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/buffer_stream/</guid>
+    <description><![CDATA[作为一个前端开发，一般很难与二进制]]></description>
+</item><item>
+    <title>设计模式学习-状态模式</title>
+    <link>http://example.org/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/</link>
+    <pubDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/</guid>
+    <description><![CDATA[经常会遇到一个现象，在某个需求中会存在多种不同的状态，并且状态之间还会进行转换。 例如在处理不同的状态时，会这么写： if(status === &#39;ready&#39;) { ... } else if(status === &#39;confirm&#39;) { ... }]]></description>
+</item><item>
     <title>更新homebrew</title>
     <link>http://example.org/posts/updatebrew/</link>
     <pubDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/posts/updatebrew/</guid>
-    <description><![CDATA[由于 github 的在国内访问限制的问题，博客的访问出现了问题，遂准备将博客换到码云来进行托管。在从新选择博客系统中，最后选择了最快的博客生成器hugo]]></description>
+    <description><![CDATA[由于本地hexo和node版本不支持，每次还得用nvm切换node环境，所以重新选择用hugo来编辑博客。 mac 下载hugo的方法是: brew install hugo 由于]]></description>
 </item></channel>
 </rss>
