@@ -4,14 +4,7 @@
         <link>http://example.org/posts/</link>
         <description>所有文章 | 🉑🐥儿帥</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yongkezheng@gmail.com (zykee)</managingEditor>
-            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Thu, 02 Dec 2021 14:53:00 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Buffer、Stream到底是啥？</title>
-    <link>http://example.org/posts/buffer_stream/</link>
-    <pubDate>Thu, 02 Dec 2021 14:53:00 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/posts/buffer_stream/</guid>
-    <description><![CDATA[作为一个前端开发，一般很难与二进制]]></description>
-</item><item>
+            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
     <title>设计模式学习-状态模式</title>
     <link>http://example.org/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/</link>
     <pubDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</pubDate>
