@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - 标签 - 🉑🐥儿帥</title>
-        <link>http://example.org/tags/</link>
+        <link>https://zykee.net/tags/</link>
         <description>Tags - 标签 - 🉑🐥儿帥</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yongkezheng@gmail.com (zykee)</managingEditor>
-            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</lastBuildDate><atom:link href="https://zykee.net/tags/" rel="self" type="application/rss+xml" /><item>
     <title>设计模式</title>
-    <link>http://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <link>https://zykee.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <pubDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <guid>https://zykee.net/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>homebrew</title>
-    <link>http://example.org/tags/homebrew/</link>
+    <link>https://zykee.net/tags/homebrew/</link>
     <pubDate>Thu, 25 Nov 2021 19:30:56 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/tags/homebrew/</guid>
+    <guid>https://zykee.net/tags/homebrew/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
