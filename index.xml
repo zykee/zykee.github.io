@@ -4,9 +4,16 @@
         <link>https://zykee.net/</link>
         <description>🉑🐥儿帥</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>yongkezheng@gmail.com (zykee)</managingEditor>
-            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</lastBuildDate>
+            <webMaster>yongkezheng@gmail.com (zykee)</webMaster><lastBuildDate>Tue, 07 Dec 2021 09:43:28 &#43;0800</lastBuildDate>
             <atom:link href="https://zykee.net/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>设计模式学习-观察者模式</title>
+    <link>https://zykee.net/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A002/</link>
+    <pubDate>Tue, 07 Dec 2021 09:43:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://zykee.net/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A002/</guid>
+    <description><![CDATA[观察者模式是一种很经典的设计模式，允许你定义一种订阅机制， 可在对象事件发生时通知多个 “观察” 该对象的其他对象。可以良好的使代码的解耦。 应用场]]></description>
+</item><item>
     <title>设计模式学习-状态模式</title>
     <link>https://zykee.net/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A001/</link>
     <pubDate>Wed, 01 Dec 2021 18:35:57 &#43;0800</pubDate>
